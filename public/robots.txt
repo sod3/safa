@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://safa-water-qatar-premium.fluffy-koala-4479.chatgpt.site/sitemap.xml

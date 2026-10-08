@@ -1,0 +1,11 @@
+import type {Metadata} from 'next';
+import Image from 'next/image';
+import {Button,FinalCTA,Hero,SectionHeading,Stats} from '@/components/site';
+import {AppSection,BusinessSection,Certifications,Coverage,FacilitySection,FAQSection,FleetSection,HomeDelivery,ProductsSection,QuickOrder,WhySafa} from '@/components/sections';
+import {faqs,href,origin,txt,type Locale} from '@/lib/content';
+import {metadataFor,JsonLd} from '@/lib/seo';
+export async function generateMetadata({params}:{params:Promise<{lang:Locale}>}):Promise<Metadata>{const {lang}=await params;return metadataFor(lang,'',txt(lang,['Pure Water Delivered Across Qatar','مياه نقية توصل إلى جميع أنحاء قطر']),txt(lang,['Safa Water: 5-gallon drinking water, dispensers and reliable home and business delivery in Qatar. Serving Qatar since 2004.','مياه صفا: مياه شرب ٥ جالون ومبردات وتوصيل موثوق للمنازل والشركات في قطر. نخدم قطر منذ ٢٠٠٤.']))}
+export default async function Home({params}:{params:Promise<{lang:Locale}>}){const {lang:l}=await params;return <><JsonLd value={{'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.slice(0,5).map(f=>({'@type':'Question',name:txt(l,f.q),acceptedAnswer:{'@type':'Answer',text:txt(l,f.a)}}))}}/><Hero locale={l}/><Stats locale={l}/><QuickOrder locale={l}/><WhySafa locale={l}/><ProductsSection locale={l}/><HomeDelivery locale={l}/><BusinessSection locale={l}/><FacilitySection locale={l}/><FleetSection locale={l}/><Certifications locale={l}/><section className="home-story container"><div><SectionHeading locale={l} eyebrow={['A QATAR ORIGINAL, SINCE 2004','علامة قطرية، منذ ٢٠٠٤']} title={['Built on quality. Growing through trust.','بُنيت على الجودة. ونمت بالثقة.']} description={['A journey that began in 2004. A promise that reaches homes, stores and organisations across Qatar. Discover the people and care behind Safa.','رحلة بدأت في ٢٠٠٤. ووعد يصل إلى المنازل والمتاجر والمؤسسات في قطر. اكتشف الأشخاص والعناية وراء صفا.']}/><Button href={href(l,'about')} variant="secondary">{txt(l,['Our Story','قصتنا'])}</Button></div><div className="home-story-number"><span>{txt(l,['since','منذ'])}</span><strong>2004</strong><p>{txt(l,['A little purity. Every day.','نقاء لكل يوم.'])}</p></div></section><AppSection locale={l}/><Coverage locale={l}/><FAQSection locale={l}/><FinalCTA locale={l}/></>}
+
+
+
